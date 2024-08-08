@@ -1,0 +1,25 @@
+package com.warhe8d.controller;
+import com.warhe8d.controller.Controller;
+import com.warhe8d.records.Book;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.graphql.GraphQlTest;
+import org.springframework.graphql.test.tester.GraphQlTester;
+
+@GraphQlTest(Controller.class)
+class BookControllerTest {
+
+    @Autowired
+    private GraphQlTester graphQlTester;
+
+    @Test
+    void canGetBooks() {
+        graphQlTester
+                .documentName("books")
+                .execute()
+                .path("books")
+                .entityList(Book.class)
+                .hasSize(5);
+
+    }
+}
