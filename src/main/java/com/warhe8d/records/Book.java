@@ -2,6 +2,7 @@ package com.warhe8d.records;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public record Book(Integer id,
                    String name,
@@ -15,4 +16,10 @@ public record Book(Integer id,
             new Book(1, "serial killer Lain", "horror",190),
             new Book(1, "Monogatari", "Mystery",789)
             );
+
+    public static Optional<Book> getBookById(Integer id){
+        return  books.stream()
+                .filter(b-> b.id.equals(id))
+                .findFirst();
+    }
 }
