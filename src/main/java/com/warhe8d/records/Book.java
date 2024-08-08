@@ -7,14 +7,15 @@ import java.util.Optional;
 public record Book(Integer id,
                    String name,
                    String genre,
-                   Integer pageCount) {
+                   Integer pageCount,
+                   Integer authorId) {
 
     public static List<Book> books = Arrays.asList(
-            new Book(1, "Oregairu", "SOL",324),
-            new Book(2, "Hyouka", "SOL",212),
-            new Book(1, "86", "drama",435),
-            new Book(1, "serial killer Lain", "horror",190),
-            new Book(1, "Monogatari", "Mystery",789)
+            new Book(1, "Oregairu", "SOL",324,1),
+            new Book(2, "Hyouka", "SOL",212,2),
+            new Book(3, "86", "drama",435,3),
+            new Book(4, "serial killer Lain", "horror",190,4),
+            new Book(5, "Monogatari", "Mystery",789,5)
             );
 
     public static Optional<Book> getBookById(Integer id){

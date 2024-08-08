@@ -8,4 +8,10 @@ type Book{
     name: String
     genre: String
     pageCount: Int
+    author: Author
+}
+
+type Author{
+    id: ID
+    name: String
 }
